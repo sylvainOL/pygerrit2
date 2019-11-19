@@ -98,10 +98,10 @@ class GerritRestAPI(object):
         self.url = url.rstrip("/")
         self.session = requests.session()
         retry = Retry(
-            total=5,
-            read=5,
-            connect=5,
-            backoff_factor=0.3,
+            total=10,
+            read=10,
+            connect=10,
+            backoff_factor=0.6,
             status_forcelist=(500, 502, 504),
         )
         adapter = HTTPAdapter(max_retries=retry)
